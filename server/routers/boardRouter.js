@@ -1,42 +1,9 @@
 const express = require('express');
 const router = express.Router();
 
-// 샘플용 포스트 값
-const boardListData = [
-  {
-    id: 1,
-    title: '제목1',
-    date: '',
-    category: '',
-  },
-  {
-      id: 2,
-      title: '제목2',
-      date: '',
-      category: '',
-  },
-  {
-      id: 3,
-      title: '제목3',
-      date: '',
-      category: '',
-  },
-];
+// 샘플 데이터
+const { boardViewData, boardListData } = require('../data/sample.js');
 
-const boardViewData = [
-  {
-    id: 1,
-    userId: 'test',
-    title: '제목1',
-    date: '',
-    category: '',
-    content: '',
-    comment: [
-      {id: 1, userId: 'test', content: '댓글내용1', subComment: [{}]},
-      {id: 2, userId: 'test', content: '댓글내용2', subComment: [{}]},
-    ],
-  },
-];
 
 // 게시글 관련은 모두 jwt 확인이 필요
 const { verifyJwt } = require('../jwt/jwt.js');

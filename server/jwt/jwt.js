@@ -17,10 +17,19 @@ const verifyJwt = (req, res, next) => {
     }
 }
 
+// jwt 생성 코드
 const generateJwt = (user_info) => {
-    console.log("generate jwt");
-    return 'abc';
+    const token = jwt.sign(user_info);
+    console.log("generate jwt:", token);
+    return token;
 }
+
+// jwt 디코드
+const decodeJwt = (token) => {
+    const user_info = jwt.decode(token);
+    console.log("decode jwt:", user_info);
+    return user_info;
+} 
 
 module.exports = { 
     verifyJwt, generateJwt,
