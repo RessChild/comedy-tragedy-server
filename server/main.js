@@ -1,6 +1,5 @@
 // 모듈 선언
 require('dotenv').config();
-const { config } = require('dotenv');
 const express = require('express');
 const jwt = require('jsonwebtoken');
 
