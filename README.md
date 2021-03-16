@@ -1,5 +1,6 @@
 # Comedy-Tragedy-Server
 - NodeJs / Express 기반으로 작성
+- "npm start" 혹은 "nodemon ./server/main.js" 로 실행
 
 # NPM 설치목록
 - express

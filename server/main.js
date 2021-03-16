@@ -2,22 +2,23 @@
 require('dotenv').config();
 const { config } = require('dotenv');
 const express = require('express');
-// const expressJwt = require('express-jwt');
 const jwt = require('jsonwebtoken');
 
 const app = express();
 
 // 기존의 body-parser 역할
 app.use(express.json());
-// app.use(expressJwt({ secret: process.env.JWT_SECRET }));
 
 // 서버 설정값
 const PORT = process.env.SERVER_PORT || 3001;
 
-// 라우터 설정
-const signInRouter = require('./routers/signInRouter');
+// 1. 로그인 및 회원가입
+const sign_in_router = require('./routers/signInRouter');
+app.use('/sign-in', sign_in_router);
 
-app.use('/sign-in', signInRouter);
+// 2. 게시글 리스트
+const board_router = require('./routers/boardRouter');
+app.use('/board', board_router);
 
 // 서버 실행
 const server = app.listen(PORT, () => console.log(`server is listening on port:${PORT}.`));
