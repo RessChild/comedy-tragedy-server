@@ -12,14 +12,14 @@ router.use('/*', verifyJwt);
 // 게시글 목록 출력
 router.get('/get-list/:category', (req, res) => {
   const { category } = req.params;
-  console.log(category);
+  console.log("category:", category);
   res.send(boardListData);
 });
 
 // 단일 게시글 출력
 router.get('/get-post/:pid', (req, res) => {
   const { pid } = req.params;
-  console.log(pid);
+  console.log("post id:", pid);
   res.send(boardViewData.find( data => data.id === Number.parseInt(pid)));
 });
 
