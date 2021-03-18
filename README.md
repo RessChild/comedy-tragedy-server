@@ -26,6 +26,7 @@
   ==> swagger 는 import 방식으로 만들어졌는데, nosdejs 에선 require를 사용해서 생기는 문제
       6.0 버전으로 다운그레이드를 하면 해결된다는데, 좀더 찾아봐야할 것 같음.
       ( 좀더 정확하겐, CommonJs랑 ES6의 문법 차이 )
+- 일반 상태에선 import를 못쓰고, type 을 module로 바꾸면 require를 못쓰고...
 
 # 참고자료
 - https://www.npmjs.com/package/express-jwt
@@ -34,3 +35,4 @@
 - https://dooopark.tistory.com/8
 - https://gngsn.tistory.com/69
 - https://www.daleseo.com/js-babel-node/
+- https://velog.io/@ohzzi/Node.js-%EC%97%90%EC%84%9C-importexport-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0

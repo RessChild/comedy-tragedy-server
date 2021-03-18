@@ -1,7 +1,7 @@
 // 모듈 선언
 require('dotenv').config();
 const express = require('express');
-const swaggerUi = require('swagger-ui-express');
+// const swaggerUi = require('swagger-ui-express');
 
 const app = express();
 
@@ -11,9 +11,9 @@ app.use(express.json()); // 기존의 body-parser 역할
 // app.use(upload.array()); // FormData 전용
 
 // swagger 설정
-const specs = require('./swagger/swagger.js');
-console.log(specs);
-// app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(specs));
+// const specs = require('./swagger/swagger.js');
+// console.log(specs);
+// app.use("/api-docs", swaggerUi.serve);
 
 // 서버 설정값
 const PORT = process.env.SERVER_PORT || 3001;
