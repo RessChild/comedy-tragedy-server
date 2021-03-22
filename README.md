@@ -30,7 +30,11 @@
 - 일반 상태에선 import를 못쓰고, type 을 module로 바꾸면 require를 못쓰고...
 - salt로 전화번호를 암호화할려고 했는데, 이러면 탐색은 어떻게하지..
   탐색 flag 값 자체가 암호화가 되는거라 이건 못할거같음...
-- timestamps 로 생성시점, 수정시점은 알아서 갱신되도록 할 수 있는데, 이걸 쓸건가?
+
+# 해야할 것
+- phone_number 를 암호화 못하니 다른 보안측면을 어떻게 할 것인가 논의 필요
+- timestamps 로 생성,수정 시점은 자동 갱신되도록 할 수 있는데, 이걸 쓸건지 논의 필요
+- DB 관련해선 전부 try-catch 구문을 사용하도록 수정해야 함
 
 # 참고자료
 - https://www.npmjs.com/package/express-jwt

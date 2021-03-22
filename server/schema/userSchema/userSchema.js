@@ -1,7 +1,8 @@
 const mongoose = require('mongoose');
+const { Schema, model } = mongoose;
 
 // 사용자
-const userSchema = new mongoose.Schema({
+const userSchema = new Schema({
     // salt: String, // 암호화 키
     phone_number: String, // 전화번호 (아이디)
     // created_at: { type: Date, default: Date.now }, // 생성시점
@@ -10,4 +11,4 @@ const userSchema = new mongoose.Schema({
     deleted_at: { type: Date, default: null },
 }, { timestamps: true });
 
-module.exports = mongoose.model('User', userSchema);
+module.exports = model('User', userSchema);

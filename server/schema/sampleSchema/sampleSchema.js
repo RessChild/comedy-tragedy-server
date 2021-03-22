@@ -1,7 +1,9 @@
 const mongoose = require('mongoose');
+const { Schema, model } = mongoose;
 
-const sampleSchema = new mongoose.Schema({
-    data: String,
-});
+// 테이블 명
+const sampleSchema = new Schema({
+    sample: String,
+}, { timestamps: true });
 
-module.exports = sampleSchema;
+module.exports = model('sample', sampleSchema);
