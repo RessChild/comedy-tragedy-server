@@ -7,9 +7,10 @@ const SECRET_KEY = process.env.JWT_SECRET || 'secret_key';
 // jwt 인증 코드
 const verifyJwt = (req, res, next) => {
     const request_token = req.body.token;
-    console.log(req.body);
+    // console.log(req.body);
     try {
-        jwt.verify(request_token, SECRET_KEY);
+        const payload = jwt.verify(request_token, SECRET_KEY);
+        req.userInfo = payload.phone_number;
         next();
     } catch {
         console.log('jwt error');
@@ -20,7 +21,7 @@ const verifyJwt = (req, res, next) => {
 
 // jwt 생성 코드
 const generateJwt = (user_info) => {
-    const token = jwt.sign(user_info, SECRET_KEY, { expiresIn: "20s" });
+    const token = jwt.sign(user_info, SECRET_KEY, { expiresIn: "60s" });
     console.log("generate jwt:", token);
     return token;
 }

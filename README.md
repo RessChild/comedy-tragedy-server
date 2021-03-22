@@ -28,6 +28,9 @@
       6.0 버전으로 다운그레이드를 하면 해결된다는데, 좀더 찾아봐야할 것 같음.
       ( 좀더 정확하겐, CommonJs랑 ES6의 문법 차이 )
 - 일반 상태에선 import를 못쓰고, type 을 module로 바꾸면 require를 못쓰고...
+- salt로 전화번호를 암호화할려고 했는데, 이러면 탐색은 어떻게하지..
+  탐색 flag 값 자체가 암호화가 되는거라 이건 못할거같음...
+- timestamps 로 생성시점, 수정시점은 알아서 갱신되도록 할 수 있는데, 이걸 쓸건가?
 
 # 참고자료
 - https://www.npmjs.com/package/express-jwt

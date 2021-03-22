@@ -6,8 +6,8 @@ const uri = process.env.MONGO_URI;
 // mongoose.Promise = global.Promise;
 
 // 연결
-module.exports = () => {
-    mongoose.connect(uri)
+module.exports = async () => {
+    await mongoose.connect(uri)
         .then(() => console.log('Successfully connected to mongodb'))
         .catch(e => console.error(e));
 }
