@@ -4,7 +4,6 @@ const router = express.Router();
 // 샘플 데이터
 const { boardViewData, boardListData } = require('../data/sample.js');
 
-
 // 게시글 관련은 모두 jwt 확인이 필요
 const { verifyJwt } = require('../jwt/jwt.js');
 router.use('/*', verifyJwt);

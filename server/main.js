@@ -15,6 +15,9 @@ app.use(express.json()); // 기존의 body-parser 역할
 // console.log(specs);
 // app.use("/api-docs", swaggerUi.serve);
 
+// mongodb 연결
+require('./mongo.js')();
+
 // 서버 설정값
 const PORT = process.env.SERVER_PORT || 3001;
 

@@ -11,6 +11,7 @@
 - nodemon
 - swagger-ui-express 
 - swagger-jsdoc
+- mongoose
 
 # 고민할것
 - 서버에서 router 를 선언해서 쓰는데, 현재는 함수형태 모듈을 반환하여 사용하는 중.
@@ -36,3 +37,4 @@
 - https://gngsn.tistory.com/69
 - https://www.daleseo.com/js-babel-node/
 - https://velog.io/@ohzzi/Node.js-%EC%97%90%EC%84%9C-importexport-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0
+- https://somjang.tistory.com/entry/WindowsMongodb%EC%84%A4%EC%B9%98%ED%95%98%EA%B8%B0ver-420
