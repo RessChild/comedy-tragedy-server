@@ -9,6 +9,7 @@ const userSchema = new Schema({
     // updated_at: { type: Date, default: Date.now }, // 수정시점 
     is_deleted: { type: Boolean, default: false },
     deleted_at: { type: Date, default: null },
+    push_token: { type: String, default: '' },
 }, { timestamps: true });
 
 module.exports = model('User', userSchema);

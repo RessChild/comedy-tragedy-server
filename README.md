@@ -12,6 +12,7 @@
 - swagger-ui-express 
 - swagger-jsdoc
 - mongoose
+- axios
 
 # 고민할것
 - 서버에서 router 를 선언해서 쓰는데, 현재는 함수형태 모듈을 반환하여 사용하는 중.
@@ -32,9 +33,12 @@
   탐색 flag 값 자체가 암호화가 되는거라 이건 못할거같음...
 
 # 해야할 것
-- phone_number 를 암호화 못하니 다른 보안측면을 어떻게 할 것인가 논의 필요
-- timestamps 로 생성,수정 시점은 자동 갱신되도록 할 수 있는데, 이걸 쓸건지 논의 필요
+- phone_number 를 암호화 못하니 다른 보안측면을 어떻게 할 것인가 논의 필요 OK
+- timestamps 로 생성,수정 시점은 자동 갱신되도록 할 수 있는데, 이걸 쓸건지 논의 필요 OK
+- 토큰 기간제한 없애기 OK
+- user 스키마에 push_token 정보 추가 OK
 - DB 관련해선 전부 try-catch 구문을 사용하도록 수정해야 함
+- 비밀키로 내부암호화 진행하도록 방향 수정
 
 # 참고자료
 - https://www.npmjs.com/package/express-jwt

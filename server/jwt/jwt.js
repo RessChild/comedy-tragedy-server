@@ -21,7 +21,7 @@ const verifyJwt = (req, res, next) => {
 
 // jwt 생성 코드
 const generateJwt = (user_info) => {
-    const token = jwt.sign(user_info, SECRET_KEY, { expiresIn: "60s" });
+    const token = jwt.sign(user_info, SECRET_KEY, { /*expiresIn: "60s"*/ });
     console.log("generate jwt:", token);
     return token;
 }

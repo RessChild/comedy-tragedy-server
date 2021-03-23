@@ -2,10 +2,13 @@ const express = require('express');
 const router = express.Router();
 
 // router.use(express.json());
-
 const { generateJwt } = require('../jwt/jwt.js');
 const userSchema = require('../schema/userSchema/userSchema');
 
+// sms 서비스 연결
+const { requestSMS } = require('./sms/sens');
+
+// mongodb 탐색 함수
 const getUser = (phone_number) => userSchema.findOne({'phone_number': phone_number });
 
 // 로그인 및 회원가입
@@ -26,6 +29,12 @@ router.post('/', async (req, res) => {
     return res.status(200).json({ token: token });
 });
 
+// 인증 문자 전송
+router.post('/auth-sms', async (req, res) => {
+    console.log("auth-sms");
+    // requestSMS();
+})
+
 // 새 계정 생성
 router.post('/new-account', async (req, res) => {
     const { phone_number } = req.body;
@@ -39,7 +48,7 @@ router.post('/new-account', async (req, res) => {
     });
     const result = await new_user.save(); // 신규 유저 생성
     // console.log("user result:", result);
-    res.status(200).json({ "success": true })
+    res.status(200).json({ "success": true });
 });
 
 module.exports = router;
