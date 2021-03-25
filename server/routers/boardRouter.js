@@ -19,20 +19,30 @@ router.get('/get-list/:category', async (req, res) => {
   const { category } = req.params;
   console.log("category:", category);
 
-  const posts = await getPosts(category);
-  res.send(posts);
+  try {
+    const posts = await getPosts(category);
+    return res.send(posts);
+  } catch (e) {
+    console.log('/board/get-list error');
+    return res.status(501).json({ error: "database error" });
+  }
 });
 
 // 단일 게시글 출력
 router.get('/get-post/:pid', async (req, res) => {
   const { post_id } = req.params;
-  const post = await getPost(post_id);
 
-  console.log("post id:", post_id, post);
+  try {
+    const post = await getPost(post_id);
 
-  if( !post ) return res.status(501).end(); // 게시글 없음
-  return res.json(post);
-  // res.send(boardViewData.find( data => data.id === Number.parseInt(pid)));
+    console.log("post id:", post_id, post);
+
+    if( !post ) return res.status(501).end(); // 게시글 없음
+    return res.json(post);
+  } catch (e) {
+    console.log('/board/get-post error');
+    return res.status(501).json({ error: "database error" });
+  }
 });
 
 // 게시글 작성
@@ -42,21 +52,25 @@ router.post('/upload-post', async (req, res) => {
   const { title, category, content } = req.body;
 
   console.log(phone_number);
+  try {
+    const user_id = await userSchema.findOne({ 'phone_number': phone_number }).select('id');
+    if( !user_id ) return res.status(501).end();
 
-  const user_id = await userSchema.findOne({ 'phone_number': phone_number }).select('id');
-  if( !user_id ) return res.status(501).end();
+    console.log(user_id);
 
-  console.log(user_id);
-
-  const new_post = new postSchema({
-    title,
-    content,
-    category,
-    user_id,
-  });
-  const result = await new_post.save();
-  // console.log("post result:", result);
-  res.status(200).json({ result: 'success' });
+    const new_post = new postSchema({
+      title,
+      content,
+      category,
+      user_id,
+    });
+    const result = await new_post.save();
+    // console.log("post result:", result);
+    return res.status(200).json({ result: 'success' });
+  } catch (e) {
+    console.log('/board/upload-post error');
+    return res.status(501).json({ error: "database error" });
+  }
 });
 
 // 덧글 작성

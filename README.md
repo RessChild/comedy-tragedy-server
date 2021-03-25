@@ -38,8 +38,8 @@
 - timestamps 로 생성,수정 시점은 자동 갱신되도록 할 수 있는데, 이걸 쓸건지 논의 필요 OK
 - 토큰 기간제한 없애기 OK
 - user 스키마에 push_token 정보 추가 OK
-- DB 관련해선 전부 try-catch 구문을 사용하도록 수정해야 함
-- 비밀키로 내부암호화 진행하도록 방향 수정
+- 비밀키로 내부암호화 진행하도록 방향 수정 OK
+- DB 관련해선 전부 try-catch 구문을 사용하도록 수정해야 함 OK
 
 # 참고자료
 - https://www.npmjs.com/package/express-jwt
@@ -50,3 +50,4 @@
 - https://www.daleseo.com/js-babel-node/
 - https://velog.io/@ohzzi/Node.js-%EC%97%90%EC%84%9C-importexport-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0
 - https://somjang.tistory.com/entry/WindowsMongodb%EC%84%A4%EC%B9%98%ED%95%98%EA%B8%B0ver-420
+- https://yceffort.kr/2020/06/encryption-decryption-nodejs

@@ -7,15 +7,13 @@ const SECRET_KEY = process.env.JWT_SECRET || 'secret_key';
 // jwt 인증 코드
 const verifyJwt = (req, res, next) => {
     const request_token = req.body.token;
-    // console.log(req.body);
     try {
         const payload = jwt.verify(request_token, SECRET_KEY);
         req.userInfo = payload.phone_number;
         next();
     } catch {
         console.log('jwt error');
-        // next();
-        res.status(501).end();
+        res.status(501).json({ error: "jwt error" });
     }
 }
 
