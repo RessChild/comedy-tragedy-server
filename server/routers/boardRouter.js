@@ -1,6 +1,9 @@
 const express = require('express');
 const router = express.Router();
 
+// 암호화 모듈
+const { encrypt } = require('../crypto/aes');
+
 // 샘플 데이터
 const { boardViewData, boardListData } = require('../data/sample.js');
 const userSchema = require('../schema/userSchema/userSchema');
@@ -51,9 +54,11 @@ router.post('/upload-post', async (req, res) => {
   const phone_number = req.userInfo;
   const { title, category, content } = req.body;
 
+  const aes_phone_number = encrypt(phone_number);
+
   console.log(phone_number);
   try {
-    const user_id = await userSchema.findOne({ 'phone_number': phone_number }).select('id');
+    const user_id = await userSchema.findOne({ 'phone_number': aes_phone_number }).select('id');
     if( !user_id ) return res.status(501).end();
 
     console.log(user_id);
@@ -65,7 +70,7 @@ router.post('/upload-post', async (req, res) => {
       user_id,
     });
     const result = await new_post.save();
-    // console.log("post result:", result);
+    console.log("post result:", result);
     return res.status(200).json({ result: 'success' });
   } catch (e) {
     console.log('/board/upload-post error');
