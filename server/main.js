@@ -21,6 +21,12 @@ require('./mongo.js')();
 // 서버 설정값
 const PORT = process.env.SERVER_PORT || 3001;
 
+// 0. 테스트 요소
+app.get('/', (req, res) => {
+    console.log("app get test");
+    return res.send("success to get /");
+});
+
 // 1. 로그인 및 회원가입
 const sign_in_router = require('./routers/signInRouter');
 app.use('/sign-in', sign_in_router);

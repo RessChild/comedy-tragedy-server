@@ -30,7 +30,7 @@ router.post('/', async (req, res) => {
         }
 
         // 정보가 있으면 token 을 만들고 반환
-        const token = generateJwt({ phone_number: phone_number, date: Date.now() });
+        const token = generateJwt({ phone_number: aes_phone_number, date: Date.now() });
         return res.status(200).json({ token: token });
     } catch (e) {
         console.log("/sign-in error");

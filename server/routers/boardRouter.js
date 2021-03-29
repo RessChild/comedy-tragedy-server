@@ -51,12 +51,9 @@ router.get('/get-post/:pid', async (req, res) => {
 // 게시글 작성
 router.post('/upload-post', async (req, res) => {
   console.log("upload-post");
-  const phone_number = req.userInfo;
+  const aes_phone_number = req.userInfo;
   const { title, category, content } = req.body;
 
-  const aes_phone_number = encrypt(phone_number);
-
-  console.log(phone_number);
   try {
     const user_id = await userSchema.findOne({ 'phone_number': aes_phone_number }).select('id');
     if( !user_id ) return res.status(501).end();

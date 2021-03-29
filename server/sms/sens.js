@@ -27,21 +27,32 @@ const REQUEST_HEADER = {
 const REQUEST_BODY = {
     "type": "SMS",
     "from": PHONE_NUMBER,
-    "content": "테스트 문자 보내기!!", // 기본 내용 (default)
-    "messages":[
-        {
-            "to":"01074469585", // 보낼 대상 (전화번호)
-            "content": "개별 내용임 ㅇㅇ" // 개별 메시지 내용
-        }
-    ],
+    // "content": "테스트 문자 보내기!!", // 기본 내용 (default)
 };
+
 // DELETE
 const CANCEL_URL = `https://sens.apigw.ntruss.com/sms/v2/services/{serviceId}/reservations/{reserveId}`
 
+
+// 인증번호 요청 body
+const generateRequestBody = (to, content) => {
+    return {
+        ...REQUEST_BODY,
+        "content": content,
+        "messages":[
+            {
+                "to": to, // 보낼 대상 (전화번호)
+                // "content": "개별 내용임 ㅇㅇ" // 개별 메시지 내용
+            }
+        ],
+    }
+}
+
 // sms 요청
-const requestSMS = async () => {
+const requestSMS = async (phone_number) => {
     try {
-        const { data } = await axios.post(REQUEST_URL, REQUEST_BODY, { headers: REQUEST_HEADER })
+        const body = generateRequestBody(phone_number, "전송할 내용");
+        const { data } = await axios.post(REQUEST_URL, body, { headers: REQUEST_HEADER })
             // .then( ({ data }) => console.log("success::", data))
             // .catch( e => console.log(e));
         console.log(data);

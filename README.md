@@ -32,6 +32,8 @@
 - salt로 전화번호를 암호화할려고 했는데, 이러면 탐색은 어떻게하지..
   탐색 flag 값 자체가 암호화가 되는거라 이건 못할거같음...
 - token 생성엔 원본 폰번호를 사용? 아니면 암호화된 폰번호를 사용?
+- AWS 에 파일 올렸고, mongo 연동까진 성공함
+  근데, 이걸 클라이언트에서 어떻게 서버로 접속해야하는지 감이 안옴..
 
 # 해야할 것
 - phone_number 를 암호화 못하니 다른 보안측면을 어떻게 할 것인가 논의 필요 OK
@@ -40,6 +42,9 @@
 - user 스키마에 push_token 정보 추가 OK
 - 비밀키로 내부암호화 진행하도록 방향 수정 OK
 - DB 관련해선 전부 try-catch 구문을 사용하도록 수정해야 함 OK
+- 암호화된 번호롤 token을 짜게끔 개선 OK
+- 핸드폰 번호를 받아서 문자를 전송하도록 구조 개선
+- AWS E2 연동
 
 # 참고자료
 - https://www.npmjs.com/package/express-jwt
@@ -51,3 +56,5 @@
 - https://velog.io/@ohzzi/Node.js-%EC%97%90%EC%84%9C-importexport-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0
 - https://somjang.tistory.com/entry/WindowsMongodb%EC%84%A4%EC%B9%98%ED%95%98%EA%B8%B0ver-420
 - https://yceffort.kr/2020/06/encryption-decryption-nodejs
+- https://g0pher.tistory.com/185
+- https://teamnova0410-dev.tistory.com/7
