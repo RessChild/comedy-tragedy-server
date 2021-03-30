@@ -33,7 +33,6 @@ const REQUEST_BODY = {
 // DELETE
 const CANCEL_URL = `https://sens.apigw.ntruss.com/sms/v2/services/{serviceId}/reservations/{reserveId}`
 
-
 // 인증번호 요청 body
 const generateRequestBody = (to, content) => {
     return {
