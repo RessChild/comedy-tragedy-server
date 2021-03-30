@@ -18,9 +18,12 @@
 
 # PM2 설명서
 - pm2 start 실행하길_원하는_js파일(or 설정파일)
+  ( ex. pm2 start ecosystem.config.js )
 - 서버를 데몬화시켜서 죽지않도록 하는 미들웨어
 - 별 다른 옵션 설정이 없다면 fork 로 코드를 실행
   최대한의 효율을 내기 위해선 클러스터 모드로 실행해야 함 (설정파일이 필요)
+- 리스트 확인 : pm2 list
+- 재가동 : pm2 reload
 - 현재 실행중인 데몬은 다음 명령어로 확인 가능
   1. Linux : service --status-all
   2. Window: ps
@@ -73,3 +76,4 @@
 - https://yceffort.kr/2020/06/encryption-decryption-nodejs
 - https://g0pher.tistory.com/185
 - https://teamnova0410-dev.tistory.com/7
+- https://engineering.linecorp.com/ko/blog/pm2-nodejs/
