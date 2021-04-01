@@ -22,8 +22,11 @@ require('./mongo.js')();
 const PORT = process.env.SERVER_PORT || 3001;
 
 // 0. 테스트 요소
-app.get('/', (req, res) => {
+const { s3Upload, s3GetObject } = require('./storage/s3');
+app.get('/', async (req, res) => {
     console.log("app get test");
+    // await s3Upload('testing continue.txt');
+    // await s3GetObject('testing continue.txt');
     return res.send("success to get /");
 });
 
