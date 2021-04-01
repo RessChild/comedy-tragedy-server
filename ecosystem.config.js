@@ -3,7 +3,7 @@ module.exports = {
   apps: [
     {
       name: 'comedy-tragedy',
-      script: './main.js', // 실행할 스크립트
+      script: './server/main.js', // 실행할 스크립트
       instances: 0,
       exec_mode: `cluster` // 어플리케이션 실행 모드
     }

@@ -1,6 +1,7 @@
 # Comedy-Tragedy-Server
 - NodeJs / Express 기반으로 작성
-- "npm start" 혹은 "nodemon ./server/main.js" 로 실행
+- "npm run-script dev" 혹은 "nodemon ./server/main.js" 로 단일 실행
+  "npm start" 혹은 "pm2 start ecosystem.config.js" 로 데몬 실행
 - 접속 주소 : http://3.15.156.86/ (AWS 공용 ip)
 
 # NPM 설치목록
@@ -15,6 +16,7 @@
 - mongoose
 - axios
 - pm2
+- aws-sdk
 
 # PM2 설명서
 - pm2 start 실행하길_원하는_js파일(or 설정파일)
@@ -23,13 +25,9 @@
 - 별 다른 옵션 설정이 없다면 fork 로 코드를 실행
   최대한의 효율을 내기 위해선 클러스터 모드로 실행해야 함 (설정파일이 필요)
 - 리스트 확인 : pm2 list
-- 재가동 : pm2 reload
-- 현재 실행중인 데몬은 다음 명령어로 확인 가능
-  1. Linux : service --status-all
-  2. Window: ps
-- 이후, 해당 명령어로 강제종료
-  1. Linux : task -9 프로세스_번호
-  2. Window: taskkill /pid 프로세스_번호 /F
+  재가동 : pm2 reload
+  데몬 제거 : pm2 delete (프로세스 id)
+  pm2 종료 : pm2 kill
 
 # 고민할것
 - 서버에서 router 를 선언해서 쓰는데, 현재는 함수형태 모듈을 반환하여 사용하는 중.
@@ -77,3 +75,7 @@
 - https://g0pher.tistory.com/185
 - https://teamnova0410-dev.tistory.com/7
 - https://engineering.linecorp.com/ko/blog/pm2-nodejs/
+- https://isme2n.github.io/devlog/2017/06/21/pm2-usage/
+- https://brunch.co.kr/@daniellim/43
+- https://simsimjae.tistory.com/65
+- https://hunjang.tistory.com/19
