@@ -3,6 +3,8 @@
 - "npm run-script dev" 혹은 "nodemon ./server/main.js" 로 단일 실행
   "npm start" 혹은 "pm2 start ecosystem.config.js" 로 데몬 실행
 - 접속 주소 : http://3.15.156.86/ (AWS 공용 ip)
+- 2021/04/04 시점으로 해당 프로젝트는 무기한 보류
+  ( 사용성에 대한 의문으로 프로젝트 보류 )
 
 # NPM 설치목록
 - express
@@ -60,7 +62,6 @@
 - 암호화된 번호롤 token을 짜게끔 개선 OK
 - 핸드폰 번호를 받아서 문자를 전송하도록 구조 개선
 - AWS E2 연동 (+ 인바운드 규칙에 포트 추가) OK
-
 
 # 참고자료
 - https://www.npmjs.com/package/express-jwt
